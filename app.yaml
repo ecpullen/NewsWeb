@@ -1,0 +1,4 @@
+app.yaml
+handlers:
+- url: /translateex/scrape_analysis.py
+  script: translateex/scrape_analysis.py

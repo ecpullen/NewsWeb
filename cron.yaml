@@ -1,0 +1,4 @@
+cron.yaml
+- description: scrape
+  url: /translateex/scrape_analysis.py
+  schedule: every 60 minutes

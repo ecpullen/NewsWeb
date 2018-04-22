@@ -18,7 +18,12 @@ links = {"AUS":"https://news.google.com/news/headlines/section/topic/WORLD?ned=a
 "JPN":"https://news.google.com/news/headlines/section/topic/WORLD?ned=jp&hl=ja&gl=JP", 
 "ZAF":"https://news.google.com/news/headlines/section/topic/WORLD?ned=en_za&hl=en&gl=ZA", 
 "GBR":"https://news.google.com/news/headlines/section/topic/WORLD?ned=uk&hl=en-GB&gl=GB",
-"USA":"https://news.google.com/news/headlines/section/topic/WORLD?ned=us&hl=en&gl=US"}
+"USA":"https://news.google.com/news/headlines/section/topic/WORLD?ned=us&hl=en&gl=US",
+"RUS":"https://news.google.com/news/headlines?ned=ru_ru&hl=ru&gl=RU" ,
+"MEX":"https://news.google.com/news/headlines?ned=es_mx&hl=es-419&gl=MX",
+"SWE":"https://news.google.com/news/headlines?ned=sv_se&hl=sv&gl=SE",
+"CAN":"https://news.google.com/news/headlines?ned=ca&hl=en-CA&gl=CA",
+"FRA":"https://news.google.com/news/headlines?ned=fr&hl=fr&gl=FR"}
 
 
 # Create primary country list
@@ -117,9 +122,10 @@ def save_to_csv(dict, filename):
 	'''
 	saves the dictionary as a csv file
 	'''
-	f = open('sentiment.'+filename+'.csv', 'w')
+	f = open('sentiment.'+filename.lower()+'.csv', 'w')
+	f.write("iso3, SENTIMENT\n")
 	for key in dict.keys():
-		f.write(key+', '+ str(dict.get(key)) +'\n')
+		f.write(key.upper()+', '+ str(dict.get(key)) +'\n')
 	f.close()
 
 def get_sentiment_of_all_countries(link, countries_dict,  filename = "test"):
